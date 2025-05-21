@@ -18,6 +18,8 @@ df = pd.DataFrame(
     columns=['A', 'B', 'C', 'D', 'E']
 )
 
+st.write(df)
+
 
 st.text_area("Paste CSV Data Here")
 
