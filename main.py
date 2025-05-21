@@ -21,7 +21,7 @@ df = pd.DataFrame(
 st.write(df)
 
 
-st.text_area("Paste CSV Data Here")
+#st.text_area("Paste CSV Data Here")
 
 uploaded_file = st.file_uploader("Upload CSV or Excel", type=["csv", "xlsx", "xls"])
 
