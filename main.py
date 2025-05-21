@@ -1,27 +1,29 @@
 import streamlit as st
 import pandas as pd
 
-# App configuration
-st.set_page_config(page_title="📁 Upload and Display File", layout="wide")
-st.title("📄 Upload CSV or Excel File and Display")
+st.set_page_config(page_title="File Upload Test", layout="centered")
+st.title("🧪 Minimal Upload Test")
 
-# File uploader
-uploaded_file = st.file_uploader("Choose a CSV or Excel file", type=["csv", "xlsx", "xls"])
+# Upload
+uploaded_file = st.file_uploader("Upload CSV or Excel", type=["csv", "xlsx", "xls"])
 
-# Read and display file
+# Process and display
 if uploaded_file is not None:
     try:
-        # Try reading as Excel
-        if uploaded_file.name.endswith((".xlsx", ".xls")):
-            df = pd.read_excel(uploaded_file)
-        else:
+        if uploaded_file.name.endswith(".csv"):
             df = pd.read_csv(uploaded_file)
+        else:
+            df = pd.read_excel(uploaded_file)
 
         st.success(f"✅ Successfully loaded `{uploaded_file.name}`")
-        st.write("### Preview of Uploaded Data:")
-        st.dataframe(df, use_container_width=True)
+        st.write("### First 5 Rows of Data:")
+        st.dataframe(df.head(), use_container_width=True)
 
     except Exception as e:
-        st.error(f"❌ Error reading file: {e}")
+        st.error(f"❌ Failed to read file: {e}")
 else:
-    st.info("📤 Please upload a file to get started.")
+    st.info("📂 Please upload a file to test.")
+
+# Optional: Display file size for debug
+if uploaded_file is not None:
+    st.caption(f"File size: {len(uploaded_file.getbuffer()) / 1024:.2f} KB")
