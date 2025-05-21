@@ -1,10 +1,23 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 st.set_page_config(page_title="File Upload Test", layout="centered")
 st.title("🧪 Minimal Upload Test")
 
 # Upload
+
+
+
+# Set a seed for reproducibility
+np.random.seed(42)
+
+# Create DataFrame
+df = pd.DataFrame(
+    np.random.randint(1, 100, size=(10, 5)),
+    columns=['A', 'B', 'C', 'D', 'E']
+)
+
 
 st.text_area("Paste CSV Data Here")
 
