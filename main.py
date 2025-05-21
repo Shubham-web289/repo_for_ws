@@ -5,6 +5,9 @@ st.set_page_config(page_title="File Upload Test", layout="centered")
 st.title("🧪 Minimal Upload Test")
 
 # Upload
+
+st.text_area("Paste CSV Data Here")
+
 uploaded_file = st.file_uploader("Upload CSV or Excel", type=["csv", "xlsx", "xls"])
 
 # Process and display
