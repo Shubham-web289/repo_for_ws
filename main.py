@@ -19,6 +19,17 @@ try:
 except FileNotFoundError:
     st.error(f"File not found: {file_path}")
 
+file_path2 = "runtime.txt"
+
+# Read and display the content
+try:
+    with open(file_path2, "r") as file:
+        content = file.read()
+    st.subheader("📦 Contents of `runtime.txt`")
+    st.code(content, language='text')
+except FileNotFoundError:
+    st.error(f"File not found: {file_path2}")
+
 # Upload
 
 
