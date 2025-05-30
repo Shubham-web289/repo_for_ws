@@ -5,6 +5,20 @@ import numpy as np
 st.set_page_config(page_title="File Upload Test", layout="centered")
 st.title("🧪 Minimal Upload Test")
 
+import streamlit as st
+
+# Path to requirements.txt (adjust if necessary)
+file_path = "requirements.txt"
+
+# Read and display the content
+try:
+    with open(file_path, "r") as file:
+        content = file.read()
+    st.subheader("📦 Contents of `requirements.txt`")
+    st.code(content, language='text')
+except FileNotFoundError:
+    st.error(f"File not found: {file_path}")
+
 # Upload
 
 
